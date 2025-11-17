@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Strike 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a id="goHome"></a>
+    <div class="left">
+        <img src="../images/cso2-counter-strike-online-2-logo.png" alt="Logo" class="logo">
+    </div>
+
+    <nav>
+        <a href="characters.html">Персонажи</a>
+        <a href="maps.html">Карты</a>
+        <a href="new.html">Новости</a>
+    </nav>
+
+    <div class="login">
+        <a href="#" class="Вступить в игру">Вступить в игру</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <video autoplay loop muted playsinline class="hero-bg">
+        <source src="https://cdn.fastly.steamstatic.com/apps/csgo/videos/csgo_react/cs2/cs2_header.webm">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="battle-title">Counter Strike-2</h1>
+    </div>
+</section>
+
+<!-- SLIDER BLOCK -->
+<div class="slider_block">
+
+    <div class="container">
+
+        <div class="inner_slider">
+
+            <div class="slider">
+
+                <button class="btn-slide" id="prev">&lt;prev</button>
+
+                <div class="slide active_slide">
+
+                    <div class="slide_card">
+
+                        <img src="../images/aaa.webp" alt="Slide1">
+
+                    </div>
+
+                </div>
+                <div class="slide">
+                    <div class="slide_card">
+                        <img src="../images/bb.webp" alt="Slide2">
+                    </div>
+
+                </div>
+
+
+
+                <div class="slide">
+
+                    <div class="slide_card">
+
+                        <img src="../images/444.jpg" alt="Slide3">
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+
+                    <div class="slide_card">
+
+                        <img src="../images/or.jpg" alt="Slide4">
+
+                    </div>
+                </div>
+
+                <button class="btn-slide" id="next">next&gt;</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- VIDEO BLOCK -->
+
+<div class="block_video">
+    <div class="container">
+        <h3>Counter Strike-2 </h3>
+        <div class="inner_block_video">
+            <iframe width="80%" height="450" src="https://www.youtube.com/embed/QVctog5F_jY" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    © 2025 CS2.
+</footer>
+
+<!-- MODAL  -->
+<div class="modal" id="homeModal">
+    <div class="modal_dialog">
+        <div class="modal_content">
+            <div class="modal_close">&times;</div>
+
+            <img src="../images/cso2-counter-strike-online-2-logo.png" alt="Logo">
+
+            <div class="modal_title">Вернуться на главную?</div>
+
+            <button id="goHomeBtn" class="modal_button">Перейти</button>
+        </div>
+    </div>
+</div>
+<!-- МОДАЛЬНОЕ ОКНО "ЗАПИСАТЬСЯ" (Battlefield-стиль) --><div id="registrationModal" class="modal">
+    <div class="modal_dialog">
+        <div class="modal_content battlefield-style"> <!-- Добавлен класс battlefield-style --><!-- Кнопка закрытия --><span class="modal_close" id="modalCloseBtn">&times;</span>
+
+            <!-- Логотип Battlefield, как на скриншоте --><img src="https://cdn.pixabay.com/photo/2021/11/05/11/04/battlefield-2042-6770518_1280.png" alt="Battlefield Logo" class="battlefield-logo">
+
+            <!-- Заголовок и форма --><div class="modal_title">ЗАПИСАТЬСЯ НА BETA TEST</div>
+
+            <form id="registrationForm">
+                <input
+                        required
+                        placeholder="Ваше имя"
+                        name="name"
+                        type="text"
+                        class="modal_input"
+                />
+                <input
+                        required
+                        placeholder="Ваш номер телефона"
+                        name="phone"
+                        type="text"
+                        class="modal_input"
+                />
+                <!-- Кнопка "Подтвердить" --><button type="submit" class="modal_button battlefield-btn">Подтвердить</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+<script src="modal.js"></script>
+<script src="maps.js"></script>
+</body>
+</html>
