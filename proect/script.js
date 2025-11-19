@@ -28,14 +28,14 @@ prev.onclick = () => {
 
 // Получаем элементы
 const modal = document.getElementById('registrationModal');
-const openModalBtn = document.querySelector('.install'); // Кнопка "Вступить в игру"
+const openModalBtn = document.querySelector('.install'); 
 const closeModalBtn = document.getElementById('modalCloseBtn');
 
 // 1. Функция для открытия модального окна
 function openModal(event) {
-    event.preventDefault(); // Останавливаем переход по ссылке #
+    event.preventDefault(); 
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Запрещаем скролл страницы
+    document.body.style.overflow = 'hidden';
 }
 
 // 2. Функция для закрытия модального окна
@@ -68,15 +68,12 @@ form.addEventListener('submit', (event) => {
 
 ////
 
-// =========================================================
 // I. МОДАЛЬНОЕ ОКНО ДЛЯ ЛОГОТИПА (homeModal)
-// =========================================================
 const logo = document.querySelector(".logo");
-const homeModal = document.getElementById("homeModal"); // ✅ Переименовано: было modal, стало homeModal
+const homeModal = document.getElementById("homeModal"); 
 const closeBtn = document.querySelector(".modal_close");
 const goHomeBtn = document.getElementById("goHomeBtn");
 
-// показываем модалку
 logo.addEventListener("click", () => {
     homeModal.style.display = "flex"; // Используем homeModal
 });
@@ -97,34 +94,32 @@ window.addEventListener("click", (e) => {
 });
 
 // II. МОДАЛЬНОЕ ОКНО "ВСТУПИТЬ В ИГРУ" (registrationModal)
-const regModal = document.getElementById('registrationModal'); // ✅ Переименовано!
-const openRegModalBtn = document.querySelector('.install'); // ✅ Переименовано!
-const closeRegModalBtn = document.getElementById('modalCloseBtn'); // ✅ Переименовано!
+const regModal = document.getElementById('registrationModal'); 
+const openRegModalBtn = document.querySelector('.install'); 
+const closeRegModalBtn = document.getElementById('modalCloseBtn');
 const body = document.body;
 
 // Флаг для отслеживания, было ли модальное окно уже показано по скроллу/таймеру
 let isModalShown = false; 
 
 
-// --- БАЗОВЫЕ ФУНКЦИИ МОДАЛЬНОГО ОКНА ---
 
-function openRegModal() { // ✅ Переименовано!
-    // Убедимся, что modal.js подключен после homeModal.js, чтобы не было конфликта ID крестика
+function openRegModal() { 
     
-    if (regModal && !isModalShown) { // Открываем только если не было показано по таймеру/скроллу
+    if (regModal && !isModalShown) { 
         regModal.style.display = 'block';
         body.style.overflow = 'hidden'; 
         isModalShown = true; 
         
         window.removeEventListener('scroll', handleScroll);
     } else if (regModal) {
-        // Если вызвано по клику на кнопку "Вступить в игру", открываем всегда
+        
         regModal.style.display = 'block';
         body.style.overflow = 'hidden';
     }
 }
 
-function closeRegModal() { // ✅ Переименовано!
+function closeRegModal() { 
     if (regModal) {
         regModal.style.display = 'none';
         body.style.overflow = 'auto';
@@ -132,35 +127,30 @@ function closeRegModal() { // ✅ Переименовано!
 }
 
 
-// --- 🚀 ЛОГИКА ОТКРЫТИЯ ПО СЦЕНАРИЯМ ---
 
-// 🎯 Функция: Открытие по скроллу до конца страницы (ОДИН РАЗ)
 function handleScroll() {
     if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 100)) {
         
         if (!isModalShown) {
-            openRegModal(); // Используем openRegModal
+            openRegModal(); l
             window.removeEventListener('scroll', handleScroll); 
         }
     }
 }
 
 
-// ⏱️ Функция: Открытие по таймеру 
 function openModalAfterDelay() {
     setTimeout(() => {
         if (!isModalShown) {
-            openRegModal(); // Используем openRegModal
+            openRegModal(); 
             window.removeEventListener('scroll', handleScroll);
         }
-    }, 10000); // 10 секунды
+    }, 2000); 
 }
 
 
-// --- ОБРАБОТЧИКИ СОБЫТИЙ ---
 
-// 1. При клике на кнопку "Вступить в игру"
-if (openRegModalBtn) { // Используем openRegModalBtn
+if (openRegModalBtn) { 
     openRegModalBtn.addEventListener('click', (e) => {
         e.preventDefault();
         
@@ -171,21 +161,23 @@ if (openRegModalBtn) { // Используем openRegModalBtn
     });
 }
 
-// 2. При клике на крестик
-if (closeRegModalBtn) { // Используем closeRegModalBtn
-    closeRegModalBtn.addEventListener('click', closeRegModal); // Используем closeRegModal
+if (closeRegModalBtn) { 
+    closeRegModalBtn.addEventListener('click', closeRegModal);
 }
 
-// 3. При клике вне окна
 window.addEventListener('click', (event) => {
-    if (event.target === regModal) { // Используем regModal
-        closeRegModal(); // Используем closeRegModal
+    if (event.target === regModal) { 
+        closeRegModal(); 
     }
 });
 
-// 1. Открытие по таймеру через 3 секунды
 openModalAfterDelay();
 
-// 2. Добавление слушателя скролла
 window.addEventListener('scroll', handleScroll);
 
+
+
+
+
+
+///

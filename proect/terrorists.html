@@ -3,26 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Террористы</title>
+  <title>Спецназ</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="left">
+            <a href="index.html">
+                <img src="../images/cso2-counter-strike-online-2-logo.png" class="logo" alt="logo">
+            </a>
+        </div>
+
+        <nav>
+            <a href="characters.html">Персонажи</a>
+            <a href="maps.html">Карты</a>
+            <a href="new.html">Новости</a>
+            <a href="cartochki.html" class="active">Карточки</a> 
+        </nav>
+        
+        <div class="login">
+            <a href="#" class="install">Вступить в игру</a>
+        </div>
+    </header>
 
 <header class="header">
   <a href="characters.html" class="back">← Назад</a>
 </header>
 
-<h1 class="team-title">Террористы</h1>
-
+<h1 class="team-title">Террористы </h1>
 <section class="characters-grid">
 
-  <div class="char-card"><img src="../images/mohlik.png"><p>Элитный мистер Мохлик</p></div>
-  <div class="char-card"><img src="../images/Осирис.png"><p>Осирис</p></div>
-  <div class="char-card"><img src="../images/Драгомир.png"><p>Драгомир</p></div>
-  <div class="char-card"><img src="../images/Доктор%20Романов.png"><p>Доктор Романов</p></div>
-  <div class="char-card"><img src="../images/Резан%20Готовый.png"><p>Резан Готовый</p></div>
-  <div class="char-card"><img src="../images/1074066.png"><p>Элитный Шахмат</p></div>
+    <div class="char-card" data-char-id="rezan">
+        <img src="../images/Резан Готовый.png" alt="Резан Красный">
+        
+        <div class="char-info">
+            <h3>РЕЗАН</h3>
+            <p class="char-alias">Позывной: Превосходный</p>
+            <p class="char-class">Цитата: «Горжусь своей работой»</p>
+        </div>
+        
+        <a href="#" class="select-btn" onclick="openDetails('mei'); return false;">Подробнее</a>
+    </div>
 
+    <div class="char-card" data-char-id="mohlik">
+        <img src="../images/mohlik.png" alt="Элитный мистер Мохли">
+        <div class="char-info">
+            <h3>ЭЛИТНЫЙ МОХЛИК</h3>
+            <p class="char-alias">Позывной: Мастерский</p>
+            <p class="char-class">Цитата:«Давление и время.»</p>
+        </div>
+        <a href="#" class="select-btn" onclick="openDetails('marcus'); return false;">Подробнее</a>
+    </div>
+        <div class="char-card" data-char-id="doctor romanov">
+        <img src="../images/Доктор Романов.png" alt="Доктор Романов">
+        <div class="char-info">
+            <h3>ДОКТОР РОМАНОВ </h3>
+            <p class="char-alias">Позывной: Мастерский</p>
+            <p class="char-class">Цитата:«Море волнуется три — прошу тебя, сердце, замри».</p>
+        </div>
+        <a href="#" class="select-btn" onclick="openDetails('marcus'); return false;">Подробнее</a>
+    </div>
+         <div class="char-card" data-char-id="osiris">
+        <img src="../images/Осирис.png" alt="Осирис">
+        <div class="char-info">
+            <h3>ОСИРИС </h3>
+            <p class="char-alias">Позывной: Исключительный</p>
+            <p class="char-class">Цитата: «Возражения есть?»
+
+</p>
+        </div>
+        <a href="#" class="select-btn" onclick="openDetails('marcus'); return false;">Подробнее</a>
+    </div>
+         <div class="char-card" data-char-id="dragomir">
+        <img src="../images/Драгомир.png" alt="Драгомир">
+        <div class="char-info">
+            <h3>ДРАГОМИР </h3>
+            <p class="char-alias">Позывной: Исключительный</p>
+            <p class="char-class">Цитата: «…Я жду тебя.»</p>
+        </div>
+        <a href="#" class="select-btn" onclick="openDetails('marcus'); return false;">Подробнее</a>
+    </div>
+         <div class="char-card" data-char-id="kapitan">
+        <img src="../images/кап3.png" alt="Капитан 3-ранга">
+        <div class="char-info">
+            <h3>КАПИТАН 3-РАНГА</h3>
+            <p class="char-alias">Позывной: Shadow</p>
+            <p class="char-class">Класс: Разведчик</p>
+        </div>
+        <a href="#" class="select-btn" onclick="openDetails('marcus'); return false;">Подробнее</a>
+    </div>
+    </section>
 </section>
+<div id="details-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeDetails()">&times;</span>
+        
+        <div class="modal-layout">
+            
+            <div class="modal-media">
+                <div class="video-placeholder">
+                    <img id="char-image" src="" alt="Детали персонажа">
+                </div>
+            </div>
+            
+            <div class="modal-info-panel">
+                <button class="modal-exit-btn" onclick="closeDetails()">Закрыть</button>
 
-</body></html>
+                <h2 id="char-name-modal">ИМЯ ПЕРСОНАЖА</h2>
+                
+                <div id="char-abilities" class="abilities-list">
+                    </div>
+
+                <div class="disclaimer">
+                    <p>Нажмите ESC или кнопку "Закрыть", чтобы вернуться к списку.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const characterData = {
+    'mei': {
+        name: 'Резан Красный',
+        image: "../images/Резан Готовый.png", 
+        abilities: [
+            { icon: '&#9889;', title: 'ГРАНАТОМЕТ', desc: 'Запуск крио-снарядов, замораживающих врагов.' },
+            { icon: '&#128077;', title: 'ЩИТ ЛЬДА', desc: 'Создает ледяную стену для блокирования урона и движения.' },
+            { icon: '&#127752;', title: 'МЕД. НАБОР', desc: 'Быстрое восстановление здоровья.' }
+        ]
+    },
+    'marcus': {
+        name: 'Элитный мистер Мохли',
+        image: '../images/mohlik.png',
+        abilities: [
+            { icon: '&#9992;', title: 'КРЮК ДЛЯ ЗАХВАТА', desc: 'Выпускает крюк, позволяя быстро перемещаться по карте.' },
+            { icon: '&#128062;', title: 'ПРОВОРОТНЫЙ', desc: 'Позволяет игроку двигаться быстрее и приседать, увеличивая его скорость.' }
+        ]
+    }
+    }
+
+const modal = document.getElementById('details-modal');
+const charImage = document.getElementById('char-image');
+const charNameModal = document.getElementById('char-name-modal');
+const charAbilities = document.getElementById('char-abilities');
+
+function openDetails(charId) {
+    const data = characterData[charId];
+    if (!data) return;
+
+    charImage.src = data.image;
+    charNameModal.textContent = data.name;
+
+    charAbilities.innerHTML = ''; 
+    data.abilities.forEach(ability => {
+        const abilityHtml = `
+            <div class="ability-item">
+                <div class="ability-icon">${ability.icon}</div>
+                <div class="ability-text">
+                    <h3>${ability.title}</h3>
+                    <p>${ability.desc}</p>
+                </div>
+            </div>
+        `;
+        charAbilities.insertAdjacentHTML('beforeend', abilityHtml);
+    });
+
+    modal.style.display = 'block';
+}
+
+function closeDetails() {
+    modal.style.display = 'none';
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeDetails();
+    }
+}
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeDetails();
+    }
+});
+</script>
+<script src="script.js"></script>
+<script src="maps.js"></script>
+<script src="modal.js"></script>
+
+</body>
+</html>
