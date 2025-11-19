@@ -12,12 +12,12 @@ body {
 
 /* HEADER */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #1b1b1b;
-    border-bottom: 1px solid #333;
-    padding: 15px 40px;
+display: flex;
+justify-content: space-between;
+ align-items: center;
+ background: #1b1b1b;
+ border-bottom: 1px solid #333;
+ padding: 15px 40px;
 }
 
 .logo {
@@ -30,21 +30,40 @@ body {
 }
 
 .header nav a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: #aaa;
-    font-size: 20px;
+     text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif; 
+    padding: 8px 15px;
+    border: 1px solid #4CAF50; 
+    color: #fff; 
+    background: transparent;
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }
 .header nav a:hover {
-    color: #fff;
+     background: #ac8913; 
+    color: #1c1c1c;
 }
 
-.login {
-    background: white;
-    padding: 5px 14px;
-    border-radius: 3px;
-    color: white;
+.login .install {
     text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif; 
+    padding: 8px 15px;
+    border: 1px solid #4CAF50; 
+    color: #fff; 
+    background: transparent;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.login .install:hover {
+    background: #ac8913; 
+    color: #1c1c1c;
 
 }
 .log {
@@ -52,7 +71,7 @@ body {
     color: #bbb;
 }
 
-/* HERO */
+
 /* HERO */
 .hero {
     position: relative;
@@ -70,11 +89,11 @@ body {
     position: absolute;
     inset: 0;
     /* ✅ Стили для градиента */
-    background: linear-gradient(180deg, rgba(0, 0, 5, 0), #0b0b0b);
+    background: linear-gradient(180deg, rgba(0, 0, 5, 0), #0b0b0bd1);
 }
 
 .hero-content {
-    position: absolute; /* ✅ КРИТИЧЕСКИ ВАЖНО: Добавлено для корректного позиционирования текста поверх видео и оверлея. */
+    position: absolute; 
     bottom: 80px;
     left: 60px;
 }
@@ -117,10 +136,13 @@ body {
     border-radius: 20px;
 }
 
+/* СТИЛИ СЛАЙДЕРА */
+
 .btn-slide {
-    font-size: 20px;
-    background: #222;
-    color: #fff;
+    font-size: 48px; 
+    line-height: 1; 
+    background: rgba(0, 0, 0, 0.4); 
+    color: #fff; 
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -128,6 +150,17 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    border-radius: 4px;
+    
+    /* Добавляем стильный неоновый эффект */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 5px rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+.btn-slide:hover {
+    color: #00ffff; 
+    transform: translateY(-50%) scale(1.05); 
 }
 
 #prev {
@@ -171,6 +204,7 @@ body {
     justify-content: center;
     gap: 40px;
     padding: 100px 0;
+    background: url('https://img1.akspic.ru/previews/7/9/8/1897/1897-ogon-speceffekty-dym-teplo-x750.jpg');
 }
 
 .team-card {
@@ -205,6 +239,7 @@ body {
 .team-title {
     text-align: center;
     margin-top: 40px;
+    color: white;
 }
 
 .characters-grid {
@@ -215,16 +250,17 @@ body {
 }
 
 .char-card {
-    background: #111;
-    padding: 15px;
+    background: url('https://99px.ru/sstorage/86/2020/08/10708200846146039.gif');
+    padding: 5px;
     border-radius: 10px;
     text-align: center;
     transition: .3s;
 }
 
 .char-card img {
-    width: 100%;
+    max-width: 80%;
     border-radius: 10px;
+    margin: auto;
 }
 
 .char-card:hover {
@@ -257,60 +293,106 @@ h3 {
     color: #777;
     border-top: 1px solid #333;
 }
-/* === MODAL === */
 
+
+/* === МОДАЛЬНОЕ ОКНО === */
 .modal {
-    display: none;
+    display: none; 
     position: fixed;
-    z-index: 999;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    justify-content: center;
-    align-items: center;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-top: 50px;
 }
 
 .modal_dialog {
-    background: #111;
+    margin: 10% auto; 
+    width: 90%;
+    max-width: 450px; 
+    position: relative;
+}
+
+.modal_content {
+    
     padding: 30px;
-    border-radius: 12px;
-    width: 350px;
-    text-align: center;
-    animation: showModal .3s ease;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes showModal {
-    from { transform: translateY(-40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* 2. CS-СТИЛЬ: Дизайн и Акценты */
+.modal_content.cs-style {
+    background: #181818; 
+    border: 1px solid #4CAF50; 
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4); 
 }
 
-.modal_content img {
-    width: 120px;
-    margin-bottom: 15px;
+.cs-logo {
+    width: 100px;
+    display: block;
+    margin: 0 auto 20px;
 }
-
 .modal_title {
     color: #fff;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.modal_button {
-    padding: 12px 20px;
-    width: 100%;
-    background: #ffbc00;
-    border: none;
-    color: #000;
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 8px;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
 .modal_close {
     color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
     cursor: pointer;
-    font-size: 22px;
-    float: right;
+    transition: 0.3s;
+}
+
+.modal_close:hover {
+    color: #4CAF50; 
+}
+
+/* 4. ПОЛЯ ВВОДА */
+.modal_input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    background: #0d0d0d;
+    color: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal_input:focus {
+    outline: none;
+    border-color: #4CAF50; /* Зеленый фокус при вводе */
+}
+
+/* 5. КНОПКА ПОДТВЕРЖДЕНИЯ */
+.modal_button.cs-btn {
+    width: 100%;
+    background: #4CAF50; /* Ярко-зеленая кнопка */
+    color: #111;
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.modal_button.cs-btn:hover {
+    background: #388E3C;
 }
 /* ==== MAPS HERO ==== */
 .maps-hero {
@@ -392,7 +474,7 @@ h3 {
 }
 
 .news-detail-block .container {
-    max-width: 900px; /* Ограничиваем ширину для удобства чтения */
+    max-width: 900px; 
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -442,6 +524,285 @@ h3 {
 
 .news-video-container {
     width: 100%;
-    /* Добавляем отступ, чтобы не сливалось с подвалом */
     margin-bottom: 50px; 
+}
+
+body {
+    cursor: url('https://www.citypng.com/public/uploads/preview/reticle-crosshair-red-icon-free-png-701751694974301y3cnksxiin.png') 16 16, crosshair;
+}
+a, button, .modal_button, .install {
+    cursor: pointer !important; 
+}
+
+/* СЕКЦИЯ БАННЕРА (ДОБРО ПОЖАЛОВАТЬ) */
+.hero-banner {
+    padding: 100px 0;
+    background-image: url('../images/er2.jpg'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+
+    background-color: rgba(0, 0, 0, 0.7); 
+    background-blend-mode: overlay;
+
+    color: #fff;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.banner-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sub-title {
+    font-size: 30;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: #ccc;
+}
+
+.banner-text {
+    font-size: 30;
+    font-weight: 700;
+    color: #999;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 100px 0;
+    }
+    
+    .accent-title {
+        font-size: 10vw;
+    }
+    .sub-title {
+        font-size: 5vw;
+    }
+    .banner-text {
+        font-size: 16px;
+    }
+}
+
+
+.map-section {
+    position: relative; 
+    width: 100%;
+    height: 600px; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    color: #fff;
+}
+
+.map-bg-video {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; 
+    transform: translate(-50%, -50%); 
+    background-size: cover; 
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.6) 0%,      
+        rgba(0, 0, 0, 0) 25%,      
+        rgba(0, 0, 0, 0) 75%,      
+        rgba(0, 0, 0, 0.6) 100%   
+    );
+}
+
+.map-content {
+    position: relative; 
+    z-index: 3; 
+    max-width: 800px;
+    padding: 0 20px;
+
+}
+
+
+.map-title {
+  font-size: 30;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: hwb(0 80% 20%);
+}
+
+
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .map-section {
+        height: 400px; 
+    }
+    .map-title {
+        font-size: 7vw;
+    }
+    .map-description {
+        font-size: 16px;
+    }
+}
+
+/* 1. СТИЛИ ТЕЛА СТРАНИЦЫ КАРТОЧЕК */
+html, body {
+    height: 100%;
+}
+body.cards-page {
+     background-color: #1c1c1c;     
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333; 
+}
+
+body.cards-page main {
+   
+    padding-top: 80px; 
+}
+
+body.cards-page .title {
+    text-align: center;
+    margin-top: 0; 
+    margin-bottom: 30px; 
+    font-size: 36px;
+    color: #333; 
+    font-weight: bold;
+    text-shadow: none; 
+    background-color: transparent; 
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 8px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body.cards-page .cards-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 20px 80px;
+}
+
+body.cards-page .card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+body.cards-page .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+body.cards-page .card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+body.cards-page .card h3 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+body.cards-page .card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* ... (Адаптивные стили @media также должны иметь префикс body.cards-page) ... */
+
+/* ========================================================= */
+/* СТИЛИ СЕКЦИИ МАСТЕРСКОЙ (workshop-section) */
+/* ========================================================= */
+.workshop-section {
+    background-color: #1a1a1a; /* Темный фон CS-стиля */
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.workshop-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.workshop-image {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    margin: 0 auto 40px; /* Центрируем и добавляем отступ снизу */
+    border-radius: 8px;
+    /* Можно добавить небольшую тень для глубины */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.workshop-text-block {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.workshop-subtitle {
+    font-size: 16px;
+    color: #999;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.workshop-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.workshop-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    .workshop-section {
+        padding: 40px 15px;
+    }
+    .workshop-title {
+        font-size: 28px;
+    }
 }
